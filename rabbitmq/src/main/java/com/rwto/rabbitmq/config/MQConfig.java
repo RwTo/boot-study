@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 用户创建队列，交换机，及绑定关系
- * 生产不建议这样使用，因为绑定错误需要手动解绑
- * 建议通过控制台建立队列，交换机及绑定关系
+ * 注意：
+ * 使用过程中如果切换绑定关系，记得解绑之前的绑定关系
  * @author renmw
  * @create 2024/1/29 15:14
  **/
