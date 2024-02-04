@@ -2,6 +2,10 @@ package com.rwto.rabbitmq.consumer;
 
 import com.rwto.rabbitmq.content.MQContent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -34,6 +38,16 @@ public class ExchangeListener {
 
     @RabbitListener(queues = MQContent.TOPIC_QUEUE)
     public void ListenTopicMessage(String msg){
+        log.info("TOPIC_QUEUE 消费消息：{}",msg);
+    }
+
+
+    /**注解方式创建，绑定并创建*/
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "topic.queue2",durable = "true"),
+            exchange = @Exchange(name = "topic",type = ExchangeTypes.TOPIC),
+            key = {"topic.key.#"}))
+    public void ListenTopicMessage2(String msg){
         log.info("TOPIC_QUEUE 消费消息：{}",msg);
     }
 }
