@@ -5,6 +5,8 @@ package com.rwto.rabbitmq.content;
  * @create 2024/1/29 15:10
  **/
 public class MQContent {
+
+    public static final String LAZY_QUEUE = "lazy.queue";
     public static final String SIMPLE_QUEUE = "simple.queue";
     public static final String WORK_QUEUE = "work.queue";
     public static final String FANOUT_QUEUE1 = "fanout.queue1";

@@ -23,6 +23,13 @@ public class MQConfig {
         return new Queue(MQContent.SIMPLE_QUEUE);
     }
 
+    @Bean(MQContent.LAZY_QUEUE)
+    public Queue getLazyQueue(){
+        //lazy queue 会持久化所有消息
+        //new Queue(MQContent.SIMPLE_QUEUE).addArgument("x-queue-mode","lazy");
+        return QueueBuilder.durable(MQContent.LAZY_QUEUE).lazy().build();
+    }
+
     @Bean(MQContent.WORK_QUEUE)
     public Queue getWorkQueue(){
         return new Queue(MQContent.WORK_QUEUE);
