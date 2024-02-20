@@ -14,13 +14,16 @@ public class MQContent {
     public static final String DIRECT_QUEUE = "direct.queue";
     public static final String TOPIC_QUEUE = "topic.queue";
 
+    public static final String ERROR_QUEUE = "error.queue";
+
 
     public static final String FANOUT_EXCHANGE = "fanout.exchange";
     public static final String DIRECT_EXCHANGE = "direct.exchange";
     public static final String TOPIC_EXCHANGE = "topic.exchange";
-
+    public static final String ERROR_EXCHANGE = "error.exchange";
 
     public static final String ROUTING_KEY_DIRECT = "direct.routing.key";
+    public static final String ROUTING_KEY_ERROR = "error";
     /**
      * TOPIC主题交换机的通配符
      * #: 0-n 个单词

@@ -2,6 +2,10 @@ package com.rwto.rabbitmq.config;
 
 import com.rwto.rabbitmq.content.MQContent;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.retry.MessageRecoverer;
+import org.springframework.amqp.rabbit.retry.RepublishMessageRecoverer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -99,4 +103,5 @@ public class MQConfig {
         /** 主题模式，根据动态routingKey绑定的队列，将消息发送到动态匹配的队列上，也可以实现广播模式(多个队列绑定同一个交换机)*/
         return BindingBuilder.bind(queue).to(exchange).with(MQContent.ROUTING_KEY_TOPIC);
     }
+
 }

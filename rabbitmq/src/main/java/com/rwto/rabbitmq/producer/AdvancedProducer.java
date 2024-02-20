@@ -2,9 +2,11 @@ package com.rwto.rabbitmq.producer;
 
 import com.rwto.rabbitmq.content.MQContent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.core.MessageDeliveryMode;
+import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.util.concurrent.ListenableFutureCallback;
@@ -78,7 +80,15 @@ public class AdvancedProducer {
             return "error null";
         }
         Message message = MessageBuilder.withBody(msg.getBytes(StandardCharsets.UTF_8)).setDeliveryMode(MessageDeliveryMode.NON_PERSISTENT).build();
-        rabbitTemplate.convertAndSend(MQContent.DIRECT_EXCHANGE,MQContent.ROUTING_KEY_DIRECT,message);
+        rabbitTemplate.convertAndSend(MQContent.DIRECT_EXCHANGE, MQContent.ROUTING_KEY_DIRECT, message, new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                //消息后置处理器
+                //message.getMessageProperties().setExpiration("10000");
+                //message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.NON_PERSISTENT);
+                return message;
+            }
+        });
 
 
         return "nonPersistentMessage 发送消息 ：" + msg;

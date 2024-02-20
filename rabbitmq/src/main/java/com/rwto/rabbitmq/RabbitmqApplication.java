@@ -19,6 +19,9 @@ public class RabbitmqApplication {
     /*指定json 格式的消息转换器，否则对于对象类型，传输的是java序列化后的值*/
     @Bean
     public MessageConverter messageConverter(){
-        return new Jackson2JsonMessageConverter();
+        Jackson2JsonMessageConverter messageConverter = new Jackson2JsonMessageConverter();
+        //开启消息ID，每次发送消息生成唯一UUID
+        messageConverter.setCreateMessageIds(true);
+        return messageConverter;
     }
 }
