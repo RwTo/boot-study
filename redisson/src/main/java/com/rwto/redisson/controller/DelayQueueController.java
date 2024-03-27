@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author renmw
@@ -18,7 +17,8 @@ import java.util.concurrent.atomic.AtomicLong;
  **/
 @Slf4j
 @RestController
-public class RedissonController {
+@RequestMapping("/delayQueue2")
+public class DelayQueueController {
     @Resource
     private RedissonClient redissonClient;
 
