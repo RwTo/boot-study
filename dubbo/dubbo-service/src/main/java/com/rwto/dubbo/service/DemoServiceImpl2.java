@@ -8,8 +8,8 @@ import org.apache.dubbo.config.annotation.DubboService;
  * @author renmw
  * @create 2024/3/30 16:37
  **/
-@DubboService(timeout = 1000,retries = 3,version = "v1.0",weight = 100)
-public class DemoServiceImpl implements DemoService {
+@DubboService(timeout = 1000,retries = 1,version = "v2.0")
+public class DemoServiceImpl2 implements DemoService {
 
     @Override
     public String sayHello(String name) {
@@ -18,7 +18,7 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public User getUser(String id) {
-        System.out.println(id);
+        System.out.println(id+"new");
         User user = new User();
         user.setAge(18);
         user.setId(id);
