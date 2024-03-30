@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "zookeeper.connectString",
+      "type": "java.lang.String",
+      "description": "Description for zookeeper.connectString."
+    },
+    {
+      "name": "zookeeper.sessionTimeoutMs",
+      "type": "java.lang.String",
+      "description": "Description for zookeeper.sessionTimeoutMs."
+    },
+    {
+      "name": "zookeeper.maxRetries",
+      "type": "java.lang.String",
+      "description": "Description for zookeeper.maxRetries."
+    },
+    {
+      "name": "zookeeper.connectionTimeoutMs",
+      "type": "java.lang.String",
+      "description": "Description for zookeeper.connectionTimeoutMs."
+    }
+  ] }
