@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @Slf4j
 @RestController
-@RequestMapping("/delayQueue2")
+@RequestMapping("/delayQueue")
 public class DelayQueueController {
     @Resource
     private RedissonClient redissonClient;
@@ -51,12 +51,10 @@ public class DelayQueueController {
     @RequestMapping("/delayQueueOffer")
     public void delayQueue(String str) {
         System.out.println(System.currentTimeMillis());
-        int sum = 0;
-        for(int i = 0; i< 10000; i++){
-            redissonDelayQueueService.offer(""+i,5L);
-            sum += i;
-        }
-        System.out.println(sum);
+
+        redissonDelayQueueService.offer(str,5L);
+
+
         System.out.println(System.currentTimeMillis());
     }
 }

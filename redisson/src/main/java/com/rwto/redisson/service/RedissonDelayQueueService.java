@@ -32,10 +32,10 @@ public class RedissonDelayQueueService {
                 try {
                     String str = rBlockingDeque.take();
                     log.info("str=" + str);
-                    sum += Integer.parseInt(str);
-                    count++;
-                    log.info("count=" + count);
-                    log.info("sum=" + sum);
+//                    sum += Integer.parseInt(str);
+//                    count++;
+//                    log.info("count=" + count);
+//                    log.info("sum=" + sum);
                 } catch (Exception e) {
                     log.error("error", e);
                 }
@@ -43,8 +43,8 @@ public class RedissonDelayQueueService {
         });
         /*守护线程，如果所有用户线程都停止了，即使还有守护线程在运行，jvm也会退出，GC线程就是守护线程*/
         /*守护线程一般用作一些辅助工作*/
-        thread.setDaemon(true);
-        thread.start();
+        /*thread.setDaemon(true);*/
+        //thread.start();
     }
 
     public void offer(String obj,Long sec){
