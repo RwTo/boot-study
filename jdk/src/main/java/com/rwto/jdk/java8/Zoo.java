@@ -13,7 +13,7 @@ public class Zoo {
    private Dog dog;
 
    public static Zoo getZoo() {
-      return Zoo.builder().dog(Dog.builder().age(1).build()).build();
+      return null;
    }
 }
 
