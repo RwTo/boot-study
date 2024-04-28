@@ -1,0 +1,26 @@
+certificate:
+  aaa: 123
+  templates:
+    certification:
+      source: ulearn
+      template: 证书.jpg
+      params:
+        - font:
+            name: Arial
+            size: 16
+            style: 0
+          color:
+            rgb: 000000
+          xPoint: 100
+          yPoint: 200
+          textAlign: CENTER
+
+        - font:
+            family: Times New Roman
+            size: 12
+            style: 0
+          color:
+            rgb: 000000
+          xPoint: 100
+          yPoint: 300
+          textAlign: RIGHT
