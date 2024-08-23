@@ -1,6 +1,8 @@
 package com.rwto.jdk.other;
 
 
+import java.util.Objects;
+
 public class Dog {
    private int age;
 
@@ -21,5 +23,8 @@ public class Dog {
       return age == dog.age;
    }
 
-   
+   @Override
+   public int hashCode() {
+      return Objects.hash(age);
+   }
 }

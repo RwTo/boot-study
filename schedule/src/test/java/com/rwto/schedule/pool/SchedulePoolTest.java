@@ -45,6 +45,7 @@ public class SchedulePoolTest {
 
 
     @Test
+    /*salary*/
     public void test4() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         int x ;//总 整数
         double y ; //实
@@ -58,7 +59,38 @@ public class SchedulePoolTest {
     }
 
     @Test
-    public void test5(){
+    /*salary 16612，17123*/
+    public void test5() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        double x ;//总 整数
+        double y ; //实
+        for(x = 17000 ; x < 30000; x+=500){
+            double y1 = x * 0.12;
+            double y2 = (x-y1-600-5000) * 0.1;
+            y = x-y1-600-y2;
+            System.out.println("x= "+x + " y1*2= "+y1*2 + " y2 = "+ y2 +" y = "+ y);
+
+            System.out.println("===================");
+        }
+    }
+
+    @Test
+    /*salary 16612，17123*/
+    public void test7() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        double x ;//总 整数
+        double y ; //实
+        for(x = 17000 ; x < 40000; x+=500){
+            double y1 = x * 0.12;
+            double y2 = x * 0.1;
+            double y3 = (x-y1-y2-5000) * 0.1;
+            y = x-y1-y2-y3;
+            System.out.println("x= "+x + " y1*2= "+y1*2 + " y2 = "+ y2 + " y3 = "+ y3 +" y = "+ y);
+
+            System.out.println("===================");
+        }
+    }
+
+    @Test
+    public void test6(){
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 2, 30, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
 

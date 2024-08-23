@@ -27,7 +27,7 @@ public class CanalClient {
     public static void main(String[] args) throws InvalidProtocolBufferException {
         // 连接canal服务器
         CanalConnector connector = CanalConnectors.newSingleConnector(
-                new InetSocketAddress("118.178.187.5", 11111),
+                new InetSocketAddress(hostName, 11111),
                 "example",
                 "",
                 "");
