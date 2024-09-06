@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
  * @create 2024/9/6 12:24
  * 只能拦截controller
  * 属于springmvc
+ * 基于动态代理，通过反射实现的函数增强
+ * 按照自己加入拦截的顺序执行  WebMvcConfigurer
  **/
 public class MyInterceptor implements HandlerInterceptor {
     /**

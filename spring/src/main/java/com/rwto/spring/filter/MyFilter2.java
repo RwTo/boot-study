@@ -14,10 +14,9 @@ import java.io.IOException;
  * 可以拦截静态资源
  * 属于servlet容器
  * 基于责任链模式，通过函数回调的方式，实现的函数增强
- * 通过文件名的顺序进行控制执行顺序
  **/
 @WebFilter(urlPatterns = "/hello/filter")
-public class MyFilter implements Filter {
+public class MyFilter2 implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -30,7 +29,7 @@ public class MyFilter implements Filter {
         HttpSession session = request.getSession();
         Integer count = (Integer) session.getAttribute("count");
         count = null == count ? 1 : count+1;
-        System.out.println("filter ip:" + ip + " count:"+count);
+        System.out.println("filter2 ip:" + ip + " count:"+count);
         session.setAttribute("count",count);
         filterChain.doFilter(servletRequest,servletResponse);
     }
