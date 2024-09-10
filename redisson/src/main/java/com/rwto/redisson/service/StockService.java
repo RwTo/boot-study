@@ -64,6 +64,7 @@ public class StockService {
         //必须设置超时时间，防止机器宕机造成的锁死
         redisTemplate.expire(lock,30, TimeUnit.SECONDS);*/
         /**使用redis自带的原子命令，setnx的同时设置超时时间 */
+        /** 设置锁时，保证原子性，防止设置锁之后，服务宕机，导致锁死*/
         Boolean absent = redisTemplate.opsForValue().setIfAbsent(lock, stock, 30, TimeUnit.SECONDS);
 
         /*
@@ -87,6 +88,7 @@ public class StockService {
         }finally {
             /*一定放在finally里，防止锁死*/
             /*但是考虑有机器宕机的可能，必须给lock加一个过期时间，否则还是可能锁死*/
+            /**释放锁时，保证原子性，防止误删别人锁，准备删锁的时候，锁过期了，另一个线程又正好加上了锁*/
             redisTemplate.delete(lock);
         }
     }
