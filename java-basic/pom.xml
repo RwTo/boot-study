@@ -14,7 +14,11 @@
     <description>Demo project for java-basic</description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>io.github.rwto</groupId>
+            <artifactId>template-engine</artifactId>
+            <version>2.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
