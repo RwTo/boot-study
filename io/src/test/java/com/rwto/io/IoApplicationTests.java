@@ -1,10 +1,10 @@
-package com.rwto.spring;
+package com.rwto.io;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class IoApplicationTests {
 
     @Test
     void contextLoads() {

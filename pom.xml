@@ -18,7 +18,8 @@
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot Study</description>
     <modules>
-        <module>rabbitmq</module>
+        <module>common</module>
+        <module>spring</module>
     </modules>
     <properties>
         <java.version>8</java.version>
